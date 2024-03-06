@@ -12,6 +12,23 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
+import { wpquery } from '../graphql/wordpressQuery';
+const data = await wpquery({
+  query: `
+    query postQuery {
+      posts {
+        nodes {
+          title
+          date
+          excerpt
+          slug
+        }
+      }
+    }
+  `
+});
+
+
 const metadata = {
   title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
   ignoreTitleTemplate: true,
@@ -55,6 +72,28 @@ const metadata = {
   <Note />
 
   <!-- Features Widget *************** -->
+
+
+
+
+
+
+
+
+{data.posts.nodes.map(post => {
+  return (
+    <div>
+      <p>{post.title}</p>
+      <p>{post.excerpt}</p>
+      <p>{post.slug}</p>
+    </div>
+  )
+})}
+
+
+
+
+
 
   <Features
     id="features"

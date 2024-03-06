@@ -22,7 +22,7 @@ const whenExternalScripts = (items = []) =>
     ? Array.isArray(items)
       ? items.map((item) => item())
       : [items()]
-    : [];
+    : []; 
 
 export default defineConfig({
   site: SITE.site,
