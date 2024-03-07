@@ -9,7 +9,8 @@ export async function wpquery({query, variables ={}}:gqlParams) {
     const res = await fetch('https://davida570.sg-host.com/graphql', {
         method: 'post',
         headers: {
-            'Content-Type' : 'application/json'
+            'Content-Type' : 'application/json',
+            'Authorization': 'Basic UmljaGFyZCBCYXJyOkgzOTIgSWpycyBRVXlhIG9pdFcgMEpyRyBCNThC'
         },
         body: JSON.stringify({
             query,
