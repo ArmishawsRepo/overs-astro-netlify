@@ -22,7 +22,8 @@ export async function wpquery({query, variables ={}}:gqlParams) {
         console.error(res);
         return {};
     }
-
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { data } = await res.json();
+// eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return data;
 }
