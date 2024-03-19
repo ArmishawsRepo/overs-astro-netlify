@@ -57,7 +57,7 @@ export const headerData = {
       ],
     },
     {
-      text: 'Landing',
+      text: 'UK Removals',
       links: [
         {
           text: 'Lead Generation',
@@ -97,22 +97,10 @@ export const headerData = {
           href: getPermalink('get-started-website-with-astro-tailwind-css', 'post'),
         },
         {
-          text: 'Article (with MDX)',
-          href: getPermalink('markdown-elements-demo-post', 'post'),
-        },
-        {
           text: 'Category Page',
           href: getPermalink('tutorials', 'category'),
         },
-        {
-          text: 'Tag Page',
-          href: getPermalink('astro', 'tag'),
-        },
       ],
-    },
-    {
-      text: 'Widgets',
-      href: '#',
     },
   ],
   actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
@@ -127,9 +115,6 @@ export const footerData = {
         { text: 'Security', href: '#' },
         { text: 'Team', href: '#' },
         { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
       ],
     },
     {
@@ -139,7 +124,6 @@ export const footerData = {
         { text: 'Partners', href: '#' },
         { text: 'Atom', href: '#' },
         { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
       ],
     },
     {
@@ -149,7 +133,6 @@ export const footerData = {
         { text: 'Community Forum', href: '#' },
         { text: 'Professional Services', href: '#' },
         { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
       ],
     },
     {
@@ -159,9 +142,6 @@ export const footerData = {
         { text: 'Blog', href: '#' },
         { text: 'Careers', href: '#' },
         { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
       ],
     },
   ],

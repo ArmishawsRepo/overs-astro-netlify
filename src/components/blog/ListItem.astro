@@ -2,7 +2,7 @@
 import type { ImageMetadata } from 'astro';
 import { Icon } from 'astro-icon/components';
 import Image from '~/components/common/Image.astro';
-import PostTags from '~/components/blog/Tags.astro';
+
 
 import { APP_BLOG } from '~/utils/config';
 import type { Post } from '~/types';
@@ -88,7 +88,7 @@ const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : 
 
     {post.excerpt && <p class="flex-grow text-muted dark:text-slate-400 text-lg">{post.excerpt}</p>}
     <footer class="mt-5">
-      <PostTags tags={post.tags} />
+      
     </footer>
   </div>
 </article>

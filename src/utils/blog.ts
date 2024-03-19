@@ -169,6 +169,7 @@ export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> =
 
 /** */
 export const findLatestPosts = async ({ count }: { count?: number }): Promise<Array<Post>> => {
+  // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
   const _count = count || 4;
   const posts = await fetchPosts();
 

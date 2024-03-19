@@ -12,7 +12,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
-import { wpquery } from '../graphql/wordpressQuery';
+import { wpquery } from '~/graphql/wordpressQuery';
 
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -87,17 +87,6 @@ const metadata = {
 
 
 
-
-
-  <!-- {data.posts.nodes.map((post: { title: string, excerpt: string, slug: string}) => {
-    return (
-      <div>
-        <p>{post.title}</p>
-        <p>{post.excerpt}</p>
-        <p>{post.slug}</p>
-      </div>
-    )
-  })} -->
   {data.posts.nodes.map((post: { title: string, excerpt: string, slug: string, content: string, featuredImage?: { node: {sourceUrl: string; altText?: string;} } }) => {
     return (
       <div>

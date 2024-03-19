@@ -13,6 +13,36 @@ import { findImage } from '~/utils/images';
 import type { MetaData } from '~/types';
 import RelatedPosts from '~/components/blog/RelatedPosts.astro';
 
+
+import { wpquery } from '~/graphql/wordpressQuery';
+
+import { wpGetPosts} from '~/graphql/wordpressRequests';
+
+
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+const data = await wpquery({
+  query: `
+    query postQuery {
+      posts {
+        nodes {
+          title
+          date
+          excerpt
+          slug
+          content(format: RENDERED)
+          featuredImage {
+            node {
+              altText
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+  `
+});
+
+
 export const prerender = true;
 
 export const getStaticPaths = (async () => {
@@ -44,6 +74,24 @@ const metadata = merge(
 ---
 
 <Layout metadata={metadata}>
+
+  {data.posts.nodes.map((post: { title: string, excerpt: string, slug: string, content: string, featuredImage?: { node: {sourceUrl: string; altText?: string;} } }) => {
+    return (
+      <div>
+        <p>{post.title}</p>
+        <p>{post.excerpt}</p>
+        <p>{post.slug}</p>
+        <div dangerouslySetInnerHTML={{ __html: post.content }}></div> 
+        {post.featuredImage && (
+          <img
+            src={post.featuredImage.node.sourceUrl}
+            alt={post.featuredImage.node.altText || 'Featured Image'}
+          />
+        )}
+      </div>
+    )
+  })}
+
   <SinglePost post={{ ...post, image: image }} url={url} />
   <ToBlogLink />
   <RelatedPosts post={post} />

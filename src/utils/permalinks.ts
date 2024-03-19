@@ -13,6 +13,7 @@ const createPath = (...params: string[]) => {
   return '/' + paths + (SITE.trailingSlash && paths ? '/' : '');
 };
 
+// eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
 const BASE_PATHNAME = SITE.base || '/';
 
 export const cleanSlug = (text = '') =>
@@ -45,10 +46,6 @@ export const getPermalink = (slug = '', type = 'page'): string => {
   switch (type) {
     case 'category':
       permalink = createPath(CATEGORY_BASE, trimSlash(slug));
-      break;
-
-    case 'tag':
-      permalink = createPath(TAG_BASE, trimSlash(slug));
       break;
 
     case 'post':
